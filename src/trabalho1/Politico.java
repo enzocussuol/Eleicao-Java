@@ -2,7 +2,7 @@ package trabalho1;
 
 import java.time.LocalDate;
 
-public class Politico {
+public class Politico implements Comparable<Politico>{
 	private int numero;
 	private int votosNominais;
 	private String situacao;
@@ -86,5 +86,16 @@ public class Politico {
 				this.sexo + "," + 
 				this.dataNascimento + "," + 
 				this.partido;
+	}
+
+	@Override
+	public int compareTo(Politico politico) {
+		int diferenca = politico.getVotosNominais() - this.votosNominais;
+		
+		if(diferenca != 0) {
+			return diferenca;
+		}else {
+			return this.dataNascimento.compareTo(politico.getDataNascimento());
+		}
 	}
 } 

@@ -48,7 +48,7 @@ public class Leitura {
 			
 			inputScanner.close();
 		} catch(FileNotFoundException e){
-			System.out.println("Nao foi possivel abrir o arquivo de leitura");
+			System.out.println("Nao foi possivel abrir o arquivo de leitura dos politicos");
 			return;
 		}
 	}
@@ -74,6 +74,8 @@ public class Leitura {
 				partido.setNomePartido(linhaScanner.next());
 				partido.setSiglaPartido(linhaScanner.next());
 				
+				//Adicionar politicos na lista de politicos de cada partido
+				
 				partidos.add(partido);
 				
 				linhaScanner.close();
@@ -81,7 +83,7 @@ public class Leitura {
 			
 			inputScanner.close();
 		} catch(FileNotFoundException e){
-			System.out.println("Nao foi possivel abrir o arquivo de leitura dos candidatos");
+			System.out.println("Nao foi possivel abrir o arquivo dos partidos");
 			return;
 		}
 	}
