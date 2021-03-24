@@ -54,6 +54,35 @@ public class Leitura {
 	}
 	
 	public void lePartidos(LinkedList<Partido> partidos) {
-		
+		try {
+			FileInputStream input = new FileInputStream("src/csv-exemplos/capitais/vitória-partidos.csv");
+			Scanner inputScanner = new Scanner(input, "UTF-8");
+			
+			String linha;
+			
+			inputScanner.nextLine();
+			while(inputScanner.hasNextLine()) {
+				linha = inputScanner.nextLine();
+				
+				Scanner linhaScanner = new Scanner(linha);
+				linhaScanner.useDelimiter(",");
+				
+				Partido partido = new Partido();
+				
+				partido.setNumeroPartido(linhaScanner.nextInt());
+				partido.setVotosLegenda(linhaScanner.nextInt());
+				partido.setNomePartido(linhaScanner.next());
+				partido.setSiglaPartido(linhaScanner.next());
+				
+				partidos.add(partido);
+				
+				linhaScanner.close();
+			}
+			
+			inputScanner.close();
+		} catch(FileNotFoundException e){
+			System.out.println("Nao foi possivel abrir o arquivo de leitura dos candidatos");
+			return;
+		}
 	}
 }

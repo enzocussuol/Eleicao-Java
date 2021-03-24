@@ -12,5 +12,6 @@ public class Testador {
 	
 		leitura.lePoliticos(politicos);
 		leitura.lePartidos(partidos);
-	}
+		
+		}
 }

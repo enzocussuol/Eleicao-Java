@@ -6,13 +6,6 @@ public class Partido {
 	private String nomePartido;
 	private String siglaPartido;
 	
-	public Partido(int numeroPartido, int votosLegenda, String nomePartido, String siglaPartido) {
-		this.numeroPartido = numeroPartido;
-		this.votosLegenda = votosLegenda;
-		this.nomePartido = nomePartido;
-		this.siglaPartido = siglaPartido;
-	}
-
 	public int getNumeroPartido() {
 		return numeroPartido;
 	}
@@ -44,5 +37,12 @@ public class Partido {
 	public void setSiglaPartido(String siglaPartido) {
 		this.siglaPartido = siglaPartido;
 	}
+	
+	@Override
+	public String toString() {
+		return this.numeroPartido + "," + 
+				this.votosLegenda + "," + 
+				this.nomePartido + "," + 
+				this.siglaPartido;
+	}
 }
-
