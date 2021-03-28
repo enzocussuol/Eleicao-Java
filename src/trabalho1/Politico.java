@@ -44,7 +44,7 @@ public class Politico implements Comparable<Politico>{
 		this.nome = nome;
 	}
 
-	public String getNome_urna() {
+	public String getNomeUrna() {
 		return nomeUrna;
 	}
 
@@ -74,18 +74,6 @@ public class Politico implements Comparable<Politico>{
 
 	public void setPartido(int partido) {
 		this.partido = partido;
-	}
-	
-	@Override
-	public String toString() {
-		return this.numero + "," + 
-				this.votosNominais + "," + 
-				this.situacao + "," + 
-				this.nome + "," + 
-				this.nomeUrna + "," + 
-				this.sexo + "," + 
-				this.dataNascimento + "," + 
-				this.partido;
 	}
 
 	@Override

@@ -1,23 +1,26 @@
 package trabalho1;
 
 import java.util.Comparator;
+import java.util.Map;
 import java.util.LinkedList;
 
 public class Partido {
-	private int numeroPartido;
+	private int numero;
 	private int votosLegenda;
 	private int votosTotais;
-	private String nomePartido;
-	private String siglaPartido;
-	private LinkedList<Politico> politicos; 
-	private int quantidadePoliticos;
+	private int numEleitos;
+	private String nome;
+	private String sigla;
+	private LinkedList<Politico> politicos = new LinkedList<Politico>();
+	Politico primeiroColocado = new Politico();
+	Politico ultimoColocado = new Politico();
 	
-	public int getNumeroPartido() {
-		return numeroPartido;
+	public int getNumero() {
+		return numero;
 	}
 	
-	public void setNumeroPartido(int numeroPartido) {
-		this.numeroPartido = numeroPartido;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 	
 	public int getVotosLegenda() {
@@ -42,65 +45,115 @@ public class Partido {
 		this.votosTotais = votosNominais + this.votosLegenda;
 	}
 	
-	public String getNomePartido() {
-		return nomePartido;
+	public int getNumEleitos() {
+		return numEleitos;
 	}
 	
-	public void setNomePartido(String nomePartido) {
-		this.nomePartido = nomePartido;
-	}
-	
-	public String getSiglaPartido() {
-		return siglaPartido;
-	}
-	
-	public void setSiglaPartido(String siglaPartido) {
-		this.siglaPartido = siglaPartido;
-	}
-
-	public int getQuantidadeCandidatos(LinkedList<Politico> politicos) {
-		return this.quantidadePoliticos;
-	}
-
-	public void setQuantidadePoliticos(int quantidadePoliticos) {
-		this.quantidadePoliticos = 0;
-		for(Politico politico : politicos) {
-			if(politico.getPartido() == this.numeroPartido) {
-				this.quantidadePoliticos++;				
+	public void setNumEleitos() {
+		int contEleitos = 0;
+		
+		for(Politico politico: this.politicos) {
+			if(politico.getSituacao().equals("Eleito")) {
+				contEleitos++;
 			}
 		}
+		
+		this.numEleitos = contEleitos;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getSigla() {
+		return sigla;
+	}
+	
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 	public LinkedList<Politico> getPoliticos() {
 		return this.politicos;
 	}
-
-	public void setPoliticos(LinkedList<Politico> politicos) {
-		for(Politico politico : politicos) {
-			if(politico.getPartido() == this.numeroPartido) {
-				this.politicos.add(politico);
+	
+	public Politico getPrimeiroColocado() {
+		return primeiroColocado;
+	}
+	
+	public void setPrimeiroColocado() {
+		int maiorNumVotos = -1;
+		int votos;
+		
+		for(Politico politico: politicos) {
+			votos = politico.getVotosNominais();
+			if(votos > maiorNumVotos) {
+				maiorNumVotos = votos;
+				this.primeiroColocado = politico;
+			}
+		}
+	}
+	
+	public Politico getUltimoColocado() {
+		return ultimoColocado;
+	}
+	
+	public void setUltimoColocado() {
+		int menorNumVotos = Integer.MAX_VALUE;
+		int votos;
+		
+		for(Politico politico: politicos) {
+			votos = politico.getVotosNominais();
+			if(votos < menorNumVotos) {
+				menorNumVotos = votos;
+				this.ultimoColocado = politico;
 			}
 		}
 	}
 	
 	@Override
 	public String toString() {
-		return this.numeroPartido + "," + 
-				this.votosLegenda + "," + 
-				this.nomePartido + "," + 
-				this.siglaPartido;
+		String str;
+		
+		str = this.nome + "\n";
+		
+		for(Politico politico: this.politicos) {
+			str += politico.toString() + "\n";
+		}
+		
+		return str;
 	}
 }
 	
-class VotosTotaisComparator implements Comparator<Partido> {
+class VotosTotaisComparator implements Comparator<Map.Entry<Integer, Partido>> {
 	@Override
-	public int compare(Partido p1, Partido p2) {
-		int diferenca = p1.getVotosTotais() - p2.getVotosTotais();
+	public int compare(Map.Entry<Integer, Partido> o1, Map.Entry<Integer, Partido> o2) {
+		int diferenca = o2.getValue().getVotosTotais() - o1.getValue().getVotosTotais();
 		
 		if(diferenca != 0) {
 			return diferenca;
 		}else {
-			return p1.getNumeroPartido() - p2.getNumeroPartido();
+			return o1.getValue().getNumero() - o2.getValue().getNumero();
+		}
+	}
+}
+
+class VotosPrimeiroColocadoComparator implements Comparator<Map.Entry<Integer, Partido>> {
+	@Override
+	public int compare(Map.Entry<Integer, Partido> o1, Map.Entry<Integer, Partido> o2) {
+		Politico primeiroColocado1 = o1.getValue().getPrimeiroColocado();
+		Politico primeiroColocado2 = o2.getValue().getPrimeiroColocado();
+		
+		int diferenca = primeiroColocado2.getVotosNominais() - primeiroColocado1.getVotosNominais();
+		
+		if(diferenca != 0) {
+			return diferenca;
+		}else {
+			return o1.getValue().getNumero() - o2.getValue().getNumero();
 		}
 	}
 }
