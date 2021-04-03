@@ -70,7 +70,7 @@ public class Leitura {
 				
 				politico.setDataNascimento(data);
 				
-				if(linhaScanner.next().equals("Válido")) {
+				if(linhaScanner.next().equals("VÃ¡lido")) {
 					politico.setPartido(Integer.parseInt(linhaScanner.next()));
 					partidos.get(politico.getPartido()).getPoliticos().add(politico);
 					
