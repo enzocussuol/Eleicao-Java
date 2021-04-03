@@ -28,7 +28,7 @@ public class Leitura {
 				partido.setNumero(linhaScanner.nextInt());
 				partido.setVotosLegenda(linhaScanner.nextInt());
 				partido.setNome(linhaScanner.next().toUpperCase());
-				partido.setSigla(linhaScanner.next().toUpperCase());
+				partido.setSigla(linhaScanner.next());
 				
 				partidos.put(partido.getNumero(), partido);
 				

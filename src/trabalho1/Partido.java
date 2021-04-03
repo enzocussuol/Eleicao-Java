@@ -94,6 +94,10 @@ public class Partido {
 			if(votos > maiorNumVotos) {
 				maiorNumVotos = votos;
 				this.primeiroColocado = politico;
+			}else if(votos == maiorNumVotos) {
+				if(politico.getDataNascimento().compareTo(this.primeiroColocado.getDataNascimento()) > 0){
+					this.primeiroColocado = politico;
+				}
 			}
 		}
 	}
@@ -111,6 +115,10 @@ public class Partido {
 			if(votos < menorNumVotos) {
 				menorNumVotos = votos;
 				this.ultimoColocado = politico;
+			}else if(votos == menorNumVotos) {
+				if(politico.getDataNascimento().compareTo(this.ultimoColocado.getDataNascimento()) > 0){
+					this.ultimoColocado = politico;
+				}
 			}
 		}
 	}

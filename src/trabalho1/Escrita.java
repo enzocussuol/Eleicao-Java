@@ -11,8 +11,14 @@ public class Escrita {
 		System.out.print(i + " - ");
 		System.out.print(politico.getNome() + " / ");
 		System.out.print(politico.getNomeUrna() + " (");
-		System.out.print(partidos.get(politico.getPartido()).getNome() + ", ");
-		System.out.println(politico.getVotosNominais() + " votos)");
+		System.out.print(partidos.get(politico.getPartido()).getSigla() + ", ");
+
+		int votosNominais = politico.getVotosNominais();
+		if(votosNominais > 1) {
+			System.out.println(votosNominais + " votos)");
+		}else {
+			System.out.println(votosNominais + " voto)");
+		}
 	}
 	
 	public void imprimeNumeroVagas(int numVagas) {
@@ -54,7 +60,7 @@ public class Escrita {
 	}
 	
 	public void imprimeSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
-		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos: (com sua posição no ranking de mais votados)");
+		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)");
 		
 		int i = 1;
 		for(Politico politico: politicos) {
@@ -72,7 +78,7 @@ public class Escrita {
 	}
 	
 	public void imprimeNaoSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
-		System.out.println("Eleitos, que se beneficiaram do sistema proporcional: (com sua posição no ranking de mais votados)");
+		System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)");
 		
 		int i = 1;
 		for(Politico politico: politicos) {
@@ -101,15 +107,26 @@ public class Escrita {
 			System.out.print(i + " - ");
 			System.out.print(partido.getSigla() + " - ");
 			System.out.print(partido.getNumero() + ", ");
-			System.out.print(votosTotais + " votos (");
-			System.out.print(votosNominais + " nominais e ");
+
+			if(votosTotais > 1) {
+				System.out.print(votosTotais + " votos (");				
+			}else {
+				System.out.print(votosTotais + " voto (");	
+			}
+
+			if(votosNominais > 1) {
+				System.out.print(votosNominais + " nominais e ");
+			}else {
+				System.out.print(votosNominais + " nominal e ");
+			}
+
 			System.out.print(votosLegenda + " de legenda), ");
 			
 			int numEleitos = partido.getNumEleitos();
 			if(numEleitos > 1) {
 				System.out.println(numEleitos + " candidatos eleitos");
 			}else {
-				System.out.println(numEleitos + " candidatos eleito");
+				System.out.println(numEleitos + " candidato eleito");
 			}
 			
 			i++;
@@ -133,10 +150,23 @@ public class Escrita {
 				System.out.print(partido.getNumero() + ", ");
 				System.out.print(primeiroColocado.getNomeUrna() + " (");
 				System.out.print(primeiroColocado.getNumero() + ", ");
-				System.out.print(primeiroColocado.getVotosNominais() + " votos) / ");
+
+				int votosNominais = primeiroColocado.getVotosNominais();
+				if(votosNominais > 1) {
+					System.out.print(votosNominais + " votos) / ");
+				}else {
+					System.out.print(votosNominais + " voto) / ");
+				}
+
 				System.out.print(ultimoColocado.getNomeUrna() + " (");
 				System.out.print(ultimoColocado.getNumero() + ", ");
-				System.out.println(ultimoColocado.getVotosNominais() + " votos)");
+
+				votosNominais = ultimoColocado.getVotosNominais();
+				if(votosNominais > 1) {
+					System.out.println(votosNominais + " votos)");
+				}else {
+					System.out.println(votosNominais + " voto)");
+				}
 				
 				i++;
 			}
