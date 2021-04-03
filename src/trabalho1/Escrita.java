@@ -16,7 +16,7 @@ public class Escrita {
 	}
 	
 	public void imprimeNumeroVagas(int numVagas) {
-		System.out.print("Número de vagas: ");
+		System.out.print("NÃºmero de vagas: ");
 		System.out.println(numVagas + "\n");
 	}
 	
@@ -38,7 +38,7 @@ public class Escrita {
 	}
 	
 	public void imprimeMaisVotados(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
-		System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
+		System.out.println("Candidatos mais votados (em ordem decrescente de votaÃ§Ã£oo e respeitando nÃºmero de vagas):");
 		
 		int i = 1;
 		for(Politico politico: politicos) {
@@ -54,12 +54,12 @@ public class Escrita {
 	}
 	
 	public void imprimeSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
-		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos: (com sua posição no ranking de mais votados)");
+		System.out.println("Teriam sido eleitos se a votaÃ§Ã£o fosse majoritÃ¡ria, e nÃ£o foram eleitos: (com sua posiÃ§Ã£o no ranking de mais votados)");
 		
 		int i = 1;
 		for(Politico politico: politicos) {
 			if(i <= numVagas){
-				if(politico.getSituacao().equals("Não eleito") || politico.getSituacao().equals("Suplente")) {
+				if(politico.getSituacao().equals("NÃ£o eleito") || politico.getSituacao().equals("Suplente")) {
 					imprimePolitico(politico, partidos, i);
 				}
 				i++;
@@ -72,7 +72,7 @@ public class Escrita {
 	}
 	
 	public void imprimeNaoSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
-		System.out.println("Eleitos, que se beneficiaram do sistema proporcional: (com sua posição no ranking de mais votados)");
+		System.out.println("Eleitos, que se beneficiaram do sistema proporcional: (com sua posiÃ§Ã£o no ranking de mais votados)");
 		
 		int i = 1;
 		for(Politico politico: politicos) {
@@ -88,7 +88,7 @@ public class Escrita {
 	}
 	
 	public void imprimeVotosPartidos(LinkedList<Map.Entry<Integer, Partido>> partidos) {
-		System.out.println("Votação dos partidos e número de candidatos eleitos:");
+		System.out.println("VotaÃ§Ã£o dos partidos e nÃºmero de candidatos eleitos:");
 		
 		int i = 1;
 		for(Map.Entry<Integer, Partido> entrada: partidos) {
@@ -119,7 +119,7 @@ public class Escrita {
 	}
 	
 	public void imprimePrimeiroUltimoColocados(LinkedList<Map.Entry<Integer, Partido>> partidos) {
-		System.out.println("Primeiro e último colocados de cada partido:");
+		System.out.println("Primeiro e Ãºltimo colocados de cada partido:");
 		
 		int i = 1;
 		for(Map.Entry<Integer, Partido> entrada: partidos) {
@@ -146,7 +146,7 @@ public class Escrita {
 	}
 	
 	public void imprimeDistribuicaoFaixaEtaria(LinkedList<Politico> politicos, LocalDate dataEleicao, int numVagas) {
-		System.out.println("Eleitos, por faixa etária (na data da eleição):");
+		System.out.println("Eleitos, por faixa etÃ¡ria (na data da eleiÃ§Ã£o):");
 		
 		int ate30 = 0;
 		int de30ate40 = 0;
@@ -248,7 +248,7 @@ public class Escrita {
 	}
 	
 	public void imprimeNumVotos(int totalVotos, int votosLegenda, int votosNominais) {
-		System.out.println("Total de votos válidos:    " + totalVotos);
+		System.out.println("Total de votos vÃ¡lidos:    " + totalVotos);
 		
 		float p1 = (float)votosNominais/totalVotos;
 		p1 *= 100;
