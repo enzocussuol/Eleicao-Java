@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 
  * A classe escrita tem como proposta gerar nos arquivos de saída os resultados esperados,
- * entre eles, alguns dados est�tisticos da eleição, além de listas de candidatos conforme diferentes parametros
+ * entre eles, alguns dados estatisticos da eleição, além de listas de candidatos conforme diferentes parametros
  *
  */
 public class Escrita {
