@@ -2,6 +2,13 @@ package trabalho1;
 
 import java.time.LocalDate;
 
+/**
+ * 
+ * A classe Politico tem como proposta armazenar os atributos de cada politico individualmente, incluindo:
+ * 1) Seus dados pessoais, como nome, data de nascimento e sexo
+ * 2) Seus dados eleitorais, como numero, votos nominais, situacao (eleito ou nao), nome na urna e partido
+ * 
+ */
 public class Politico implements Comparable<Politico>{
 	private int numero;
 	private int votosNominais;
@@ -71,11 +78,16 @@ public class Politico implements Comparable<Politico>{
 	public int getPartido() {
 		return partido;
 	}
-
+	
 	public void setPartido(int partido) {
 		this.partido = partido;
 	}
-
+	
+	/**
+	 * Realiza a comparacao entre dois politicos com base em seus votos nominais
+	 * Como criterio de desempate, usa-se suas idades
+	 * @param politico Politico a ser comparado
+	 */
 	@Override
 	public int compareTo(Politico politico) {
 		int diferenca = politico.getVotosNominais() - this.votosNominais;

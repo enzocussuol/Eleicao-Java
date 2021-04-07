@@ -8,16 +8,16 @@ import java.util.Map;
 
 /**
  * 
- * A classe escrita tem como proposta gerar nos arquivos de saída os resultados esperados,
+ * A classe Escrita tem como proposta gerar nos arquivos de saída os resultados esperados,
  * entre eles, alguns dados estatisticos da eleição, além de listas de candidatos conforme diferentes parametros
  *
  */
 public class Escrita {
 	/**
-	 * imprime os dados de um politico
-	 * @param politico politico que sera impresso
-	 * @param partidos Hash com todos os partidos
-	 * @param i indica a posição do partido desejado na Hash
+	 * Imprime os dados de um politico
+	 * @param politico Politico que sera impresso
+	 * @param partidos HashMap com todos os partidos
+	 * @param i int que indica a posicao do politico no relatorio
 	 */
 	private void imprimePolitico(Politico politico, LinkedHashMap<Integer, Partido> partidos, int i) {
 		System.out.print(i + " - ");
@@ -34,8 +34,8 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime o numero de vagas da eleicao (numero de politicos eleitos)
-	 * @param numVagas, numero de vagas
+	 * Imprime o numero de vagas da eleicao (numero de politicos eleitos)
+	 * @param numVagas int que representa o numero de vagas
 	 */
 	public void imprimeNumeroVagas(int numVagas) {
 		System.out.print("Número de vagas: ");
@@ -43,10 +43,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime uma lista com todos politicos eleitos
-	 * @param politicos lista com todos politicos
-	 * @param partidos hashmap com os partidos
-	 * @param numVagas numero de vagas que serve como critério de parada
+	 * Imprime uma lista com todos politicos eleitos
+	 * @param politicos LinkedList com todos os politicos
+	 * @param partidos HashMap com todos os partidos
+	 * @param numVagas int com o numero de vagas que serve como criterio de parada
 	 */
 	public void imprimeEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
 		System.out.println("Vereadores eleitos:");
@@ -66,10 +66,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime os candidatos mais votados da eleição
-	 * @param politicos lista com todos politicos
-	 * @param partidos hashmap com os partidos
-	 * @param numVagas numero de vagas que serve como critério de parada
+	 * Imprime os candidatos mais votados da eleicao
+	 * @param politicos LinkedList com todos os politicos
+	 * @param partidos HashMap com todos os partidos
+	 * @param numVagas int com o numero de vagas que serve como criterio de parada
 	 */
 	public void imprimeMaisVotados(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
 		System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
@@ -88,10 +88,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime os politicos que não foram eleitos, mas seriam em uma votacao considerando apenas numero de votos
-	 * @param politicos lista com todos politicos
-	 * @param partidos hashmap com os partidos
-	 * @param numVagas numero de vagas que serve como critério de parada
+	 * Imprime os politicos que nao foram eleitos, mas seriam em uma votacao considerando apenas numero de votos
+	 * @param politicos LinkedList com todos os politicos
+	 * @param partidos HashMap com todos os partidos
+	 * @param numVagas int com o numero de vagas que serve como criterio de parada
 	 */
 	public void imprimeSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
 		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)");
@@ -112,10 +112,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime os politicos que foram eleitos, mas nao seriam em uma votacao considerando apenas numero de votos
-	 * @param politicos lista com todos politicos
-	 * @param partidos hashmap com os partidos
-	 * @param numVagas numero de vagas que serve como critério de parada
+	 * Imprime os politicos que foram eleitos, mas nao seriam em uma votacao considerando apenas numero de votos
+	 * @param politicos LinkedList com todos os politicos
+	 * @param partidos HashMap com todos os partidos
+	 * @param numVagas int com o numero de vagas que serve como criterio de impressao
 	 */
 	public void imprimeNaoSeriamEleitos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, int numVagas) {
 		System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)");
@@ -134,8 +134,8 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime a quantidade de votos (nominais e de legenda) de cada partido e o numero de candidatos eleitos
-	 * @param partidos hashmap com todos partidos
+	 * Imprime a quantidade de votos (nominais e de legenda) de cada partido e o numero de candidatos eleitos
+	 * @param partidos HashMap com todos partidos
 	 */
 	public void imprimeVotosPartidos(LinkedList<Map.Entry<Integer, Partido>> partidos) {
 		System.out.println("Votação dos partidos e número de candidatos eleitos:");
@@ -180,8 +180,8 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime os melhores e piores colocados de cada um dos partidos
-	 * @param partidos hashmap com todos partidos
+	 * Imprime os melhores e piores colocados de cada um dos partidos
+	 * @param partidos HashMap com todos partidos
 	 */
 	public void imprimePrimeiroUltimoColocados(LinkedList<Map.Entry<Integer, Partido>> partidos) {
 		System.out.println("Primeiro e último colocados de cada partido:");
@@ -224,10 +224,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime uma tabela com dados sobre a faixa etaria de todos politicos
-	 * @param politicos lista com todos politicos
-	 * @param partidos hashmap com os partidos
-	 * @param numVagas numero de vagas que serve como critério de parada
+	 * Imprime uma tabela com dados sobre a faixa etaria de todos politicos
+	 * @param politicos LinkedList com todos os politicos
+	 * @param partidos HashMap com todos os partidos
+	 * @param numVagas int com o numero de vagas que serve como criterio de parada
 	 */
 	public void imprimeDistribuicaoFaixaEtaria(LinkedList<Politico> politicos, LocalDate dataEleicao, int numVagas) {
 		System.out.println("Eleitos, por faixa etária (na data da eleição):");
@@ -295,9 +295,9 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime uma tabela com dados sobre o sexo dos politicos eleitos
-	 * @param politicos lista com todos politicos
-	 * @param numVagas numero de vagas
+	 * Imprime uma tabela com dados sobre o sexo dos politicos eleitos
+	 * @param politicos LinkedList com todos os politicos
+	 * @param numVagas int com o numero de vagas que serve como criterio de parada
 	 */
 	public void imprimeDistribuicaoSexo(LinkedList<Politico> politicos, int numVagas) {
 		System.out.println("Eleitos, por sexo:");
@@ -337,10 +337,10 @@ public class Escrita {
 	}
 	
 	/**
-	 * imprime o numero de votos da eleicao
-	 * @param totalVotos quantidade total de votos 
-	 * @param votosLegenda quantidade de votos nos partidos
-	 * @param votosNominais quantidade de votos diretamente nos politicos
+	 * Imprime uma distribuicao a respeito dos votos da eleicao
+	 * @param totalVotos int com a quantidade total de votos 
+	 * @param votosLegenda int com a quantidade de votos nos partidos
+	 * @param votosNominais int com a quantidade de votos diretamente nos politicos
 	 */
 	public void imprimeNumVotos(int totalVotos, int votosLegenda, int votosNominais) {
 		System.out.println("Total de votos válidos:    " + totalVotos);

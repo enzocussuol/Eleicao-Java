@@ -8,7 +8,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
+/**
+ * 
+ * A classe Leitura tem como proposta coletar os dados dos arquivos de entrada e os armazenar corretamente.
+ *
+ */
 public class Leitura {
+	/**
+	 * Realiza a leitura do arquivo de partidos e preenche o hashmap com todos os partidos
+	 * @param partidos HashMap que armazena todos os partidos
+	 * @param arquivo String que contém o nome do arquivo onde encontra-se as informações sobre os partidos
+	 */
 	public void lePartidos(LinkedHashMap<Integer, Partido> partidos, String arquivo) {
 		try {
 			FileInputStream input = new FileInputStream(arquivo);
@@ -42,6 +52,12 @@ public class Leitura {
 		}
 	}
 	
+	/**
+	 * Realiza a leitura do arquivo de politicos e preenche a lista com todos os politicos
+	 * @param politicos LinkedList que armazena todos os politicos
+	 * @param partidos HashMap que armazena todos os partidos
+	 * @param arquivo String que contém o nome do arquivo onde encontra-se as informações sobre os politicos
+	 */
 	public void lePoliticos(LinkedList<Politico> politicos, LinkedHashMap<Integer, Partido> partidos, String arquivo){
 		try {
 			FileInputStream input = new FileInputStream(arquivo);

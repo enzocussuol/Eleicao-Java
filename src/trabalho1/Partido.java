@@ -4,6 +4,14 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.LinkedList;
 
+/**
+ * 
+ * A classe Partido tem como proposta armazenar os atributos de cada partido individualmente, incluindo:
+ * 1) Suas propriedades, como nome, sigla, numero
+ * 2) Seus dados eleitorais, como votos de legenda, votos totais e numero de politicos eleitos
+ * 3) Seus membros, como uma lista de todos os membros (politicos), o membro mais votado e o membro menos votado
+ * 
+ */
 public class Partido {
 	private int numero;
 	private int votosLegenda;
@@ -85,6 +93,11 @@ public class Partido {
 		return primeiroColocado;
 	}
 	
+	/**
+	 * Define o politico mais votado dentro do partido
+	 * Para isso, visita-se todos os politicos, buscando o mais votado
+	 * Como criterio de desempate, usa-se a idade dos politicos envolvidos
+	 */
 	public void setPrimeiroColocado() {
 		int maiorNumVotos = -1;
 		int votos;
@@ -106,6 +119,11 @@ public class Partido {
 		return ultimoColocado;
 	}
 	
+	/**
+	 * Define o politico menos votado dentro do partido
+	 * Para isso, visita-se todos os politicos, buscando o menos votado
+	 * Como criterio de desempate, usa-se a idade dos politicos envolvidos
+	 */
 	public void setUltimoColocado() {
 		int menorNumVotos = Integer.MAX_VALUE;
 		int votos;
@@ -122,21 +140,15 @@ public class Partido {
 			}
 		}
 	}
-	
-	@Override
-	public String toString() {
-		String str;
-		
-		str = this.nome + "\n";
-		
-		for(Politico politico: this.politicos) {
-			str += politico.toString() + "\n";
-		}
-		
-		return str;
-	}
 }
-	
+
+/**
+ * 
+ * A classe VotosTotaisComparator tem como proposta realiza a comparacao entre partidos
+ * Para isso, utiliza-se como criterio os votos totais dos partidos envolvidos
+ * Alem disso, como criterio de desempate, usa-se o numero dos partidos envolvidos
+ *
+ */
 class VotosTotaisComparator implements Comparator<Map.Entry<Integer, Partido>> {
 	@Override
 	public int compare(Map.Entry<Integer, Partido> o1, Map.Entry<Integer, Partido> o2) {
@@ -150,6 +162,13 @@ class VotosTotaisComparator implements Comparator<Map.Entry<Integer, Partido>> {
 	}
 }
 
+/**
+ * 
+ * A classe VotosPrimeiroColocadoComparator tem como proposta realiza a comparacao entre partidos
+ * Para isso, utiliza-se como criterio os votos nominais dos primeiros colocados dos partidos envolvidos
+ * Alem disso, como criterio de desempate, usa-se o numero dos partidos envolvidos
+ *
+ */
 class VotosPrimeiroColocadoComparator implements Comparator<Map.Entry<Integer, Partido>> {
 	@Override
 	public int compare(Map.Entry<Integer, Partido> o1, Map.Entry<Integer, Partido> o2) {
