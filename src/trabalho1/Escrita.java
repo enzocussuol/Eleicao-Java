@@ -8,8 +8,8 @@ import java.util.Map;
 
 /**
  * 
- * A classe escrita tem como proposta gerar nos arquivos de sa�da os resultados esperados,
- * entre eles, alguns dados est�tisticos da elei��o, al�m de listas de candidatos conforme diferentes parametros
+ * A classe escrita tem como proposta gerar nos arquivos de saída os resultados esperados,
+ * entre eles, alguns dados est�tisticos da eleição, além de listas de candidatos conforme diferentes parametros
  *
  */
 public class Escrita {
@@ -17,7 +17,7 @@ public class Escrita {
 	 * imprime os dados de um politico
 	 * @param politico politico que sera impresso
 	 * @param partidos Hash com todos os partidos
-	 * @param i indica a posi��o do partido desejado na Hash
+	 * @param i indica a posição do partido desejado na Hash
 	 */
 	private void imprimePolitico(Politico politico, LinkedHashMap<Integer, Partido> partidos, int i) {
 		System.out.print(i + " - ");
