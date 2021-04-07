@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class Escrita {
 	/**
-	 * imprime dados de um politico
+	 * imprime os dados de um politico
 	 * @param politico politico que sera impresso
 	 * @param partidos Hash com todos os partidos
 	 * @param i indica a posi��o do partido desejado na Hash
@@ -338,7 +338,7 @@ public class Escrita {
 	
 	/**
 	 * imprime o numero de votos da eleicao
-	 * @param totalVotos quantidade total de votos
+	 * @param totalVotos quantidade total de votos 
 	 * @param votosLegenda quantidade de votos nos partidos
 	 * @param votosNominais quantidade de votos diretamente nos politicos
 	 */
