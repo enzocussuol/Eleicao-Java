@@ -225,6 +225,7 @@ public class Escrita {
 	
 	/**
 	 * Imprime uma tabela com dados sobre a faixa etaria de todos politicos
+	 * Utilizou-se a biblioteca ChronoUnit para se obter a idade dos candidatos na data da eleicao
 	 * @param politicos LinkedList com todos os politicos
 	 * @param partidos HashMap com todos os partidos
 	 * @param numVagas int com o numero de vagas que serve como criterio de parada
